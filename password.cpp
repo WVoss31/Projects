@@ -6,6 +6,7 @@ void getInput();
 void login();
 void createUser();
 void createPassword();
+void createPassword(std::string username);
 
 int main(){
     getInput();
@@ -40,12 +41,60 @@ void getInput(){
 
 void login() {
 
+    std::ifstream user;
+    std::ifstream pass;
+    std::hash<std::string> pass_hash;
+    std::string username, password, storeuser, storepass;
+
+    std::cout << "Please enter Username: \n";
+    std::cin >> username;
+    std::cout << "Please enter Password: \n";
+    std::cin >> password;
+
+    user.open("Users.txt");
+    pass.open("Passwords.txt");
+
+    while (user >> storeuser && pass >> storepass) {
+        password = pass_hash(password);
+        if (username == storeuser && password == storepass) {
+            std::cout << "Welcome " << username << std::endl;
+            break;
+        }
+    }
+    std::cout << "Either your username or password is incorrect.\n";
+
+    user.close();
+    pass.close();
+    
 }
 
 void createUser() {
+    std::fstream newUser;
+    std::string username;
+
+    std::cout << "Please Enter your new username: \n";
+    std::cin >> username;
+    newUser.open("Users.txt");
+    newUser << username << std::endl;
+    newUser.close();
+    createPassword();
+
+
 
 }
 
 void createPassword() {
+    std::fstream newPass;
+    std::string password;
+    std::hash<std::string> str_hash;
+
+    std::cout << "Please enter your new password: \n";
+    std::cin >> password;
+    newPass.open("Passwords.txt");
+    newPass << str_hash(password) << std::endl;
+    newPass.close();
+}
+
+void createPassword(std::string username) {
 
 }
