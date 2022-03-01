@@ -65,8 +65,6 @@ void login() {
     std::cin >> username;
     std::cout << "Please enter Password: \n";
     std::cin >> password;
-    //hash the input and store it back in password
-    password = pass_hash(password);
 
     //open both files in READ mode
     user.open("Users.txt", std::fstream::in);
@@ -75,7 +73,7 @@ void login() {
     //while the streams can continue to store the values they read
     while (user >> storeuser && pass >> storepass) {
         //if username and the hashed password match, set matches = true and leave loop
-        if (username == storeuser && password == storepass) {
+        if (username == storeuser && pass_hash(password) == storepass) {
             matches = true;
             break;
         }
@@ -127,6 +125,7 @@ void createPassword() {
     std::cin >> password;
     //opens file in APPEND mode, if it was WRITE, it would create a whole new file from scratch and overright it
     newPass.open("Passwords.txt", std::ifstream::app);
+    
     newPass << str_hash(password) << std::endl;
     newPass.close();
 }

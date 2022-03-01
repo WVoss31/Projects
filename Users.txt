@@ -1,6 +1,2 @@
-user
-user2
+Walker
 root
-user3
-walker
-thing
