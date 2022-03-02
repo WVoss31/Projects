@@ -45,5 +45,21 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    
+    "workbench.colorCustomizations": {
+        "titleBar.border": "#2e3440",
+        "list.activeSelectionBackground": "#434c5e",
+        "list.inactiveSelectionBackground": "#2e3440",
+        "tab.inactiveBackground": "#4c566a",
+        "editorGroupHeader.tabsBackground": "#2e3440",
+        "editorGroupHeader.noTabsBackground": "#2e3440",
+        "activityBar.background": "#4c566a",
+        "sideBar.background": "#2e3440",
+        "sideBarSectionHeader.background": "#2e3440",
+        "activityBar.border": "#0b1015",
+        "tab.border": "#0b1015",
+        "panel.border": "#05080A",
+        "statusBar.border": "#05080A"
+      },
 }
